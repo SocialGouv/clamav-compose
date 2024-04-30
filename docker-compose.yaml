@@ -6,6 +6,8 @@ services:
     entrypoint: ["/init-unprivileged"]
     volumes:
       - ${PWD}/clamd.conf
+    ports:
+      - "3310:3310"
 
   rest-server:
     image: benzino77/clamav-rest-api:1.2.2
