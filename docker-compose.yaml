@@ -18,4 +18,4 @@ services:
       APP_FORM_KEY: "FILES"
     restart: always
     ports:
-      - "8080:3000"
+      - "2311:3000"
