@@ -3,7 +3,7 @@ services:
   clamav:
     image: clamav/clamav:1.2.2
     restart: always
-    entrypoint: ["/init-privileged"]
+    entrypoint: ["/init-unprivileged"]
     volumes:
       - ${PWD}/clamd.conf
 
