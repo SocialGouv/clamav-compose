@@ -1,0 +1,19 @@
+version: "3.6"
+services:
+  clamav:
+    image: clamav/clamav:1.2.2
+    restart: always
+    entrypoint: ["/init-privileged"]
+    volumes:
+      - ${PWD}/clamd.conf
+
+  rest-server:
+    image: benzino77/clamav-rest-api:1.2.2
+    environment:
+      NODE_ENV: "production"
+      CLAMD_IP: "clamav"
+      APP_MAX_FILE_SIZE: "26214400"
+      APP_FORM_KEY: "FILES"
+    restart: always
+    ports:
+      - "8080:8080"
